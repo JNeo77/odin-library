@@ -1,0 +1,93 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #fefaf6;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+#root, #__next {
+  isolation: isolate;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background-color: #eadbc8;
+  padding: 1rem .75rem;
+}
+
+.heading {
+  color: #102c57;
+}
+
+.logo {
+  display: flex;
+}
+
+.logo-img {
+  width: 2.5rem;
+}
+
+.openModal {
+  font-weight: bold;
+  color: #fefaf6;
+  background-color: #102c57;
+  border-radius: 10px;
+  padding: .5rem 2rem;
+}
+
+dialog {
+  position: absolute;
+  top: 10%;
+  margin: auto;
+  background-color: #eadbc8;
+  color: #102c57;
+  border-radius: 8px;
+  border: 1px solid #102c57;
+  font-weight: 500;
+  box-shadow: 5px 5px 5px rgb(168, 168, 168);
+}
+
+.text, fieldset {
+  margin-bottom: 1rem;
+}
+
+div.text label {
+  display: block;
+}
+
+.modal-btns {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.addBookBtn,
+.cancelBtn {
+  color: #fefaf6;
+  background-color: #102c57;
+  border-radius: 8px;
+  padding: 5px 10px;
+}
+

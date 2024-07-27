@@ -4,7 +4,8 @@ const bookTitle = document.querySelector('#title');
 const bookAuthor = document.querySelector('#author');
 const bookPages = document.querySelector('#pages');
 const readIt = document.getElementsByName('read');
-const addBookBtn = document.querySelector('.addBookBtn');
+const bookForm = document.querySelector('#book-form');
+const cancelBtn = document.querySelector('.cancelBtn');
 
 const myLibrary = [];
 
@@ -15,9 +16,20 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-function addBookToLibrary(title, author, pages, read) {
+function addBookToLibrary() {
+  const title = bookTitle.value;
+  const author = bookAuthor.value;
+  const pages = bookPages.value;
+  let read = '';
+
+  for (let i = 0; i < 2; i++) {
+    if (readIt[i].checked) { read = readIt[i].value; }
+  }
+
   const newBook = new Book(title, author, pages, read);
+  
   myLibrary.push(newBook);
+
   console.table(myLibrary);
 }
 
@@ -25,26 +37,15 @@ addToLibraryBtn.addEventListener("click", () => {
   bookDialog.showModal();
 });
 
-addBookBtn.addEventListener("click", (e) => {
-  e.preventDefault();
+bookForm.addEventListener("submit", (e) => {
+ e.preventDefault();
+ addBookToLibrary();
+ bookDialog.close();
+ bookForm.reset();
+});
 
-  const title = bookTitle.value;
-  const author = bookAuthor.value;
-  const pages = bookPages.value;
-  let read = '';
-
-  for (let i = 0; i < readIt.length; i++) {
-    if (readIt[i].checked) { read = readIt[i].value; }
-  }
-
-  addBookToLibrary(title, author, pages, read);
-
+cancelBtn.addEventListener("click", () => {
   bookDialog.close();
-
-  bookTitle.value = '';
-  bookAuthor.value = '';
-  bookPages.value = '';
-  readIt.value = 'no';
-
+  bookForm.reset();
 });
 
