@@ -17,6 +17,15 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+Book.prototype.toggleRead = function () {
+  if (this.read === 'no') {
+      this.read = 'yes';
+    } else {
+      this.read = 'no';
+    }
+  return this.read;
+}
+
 function addBookToLibrary() {
   const title = bookTitle.value;
   const author = bookAuthor.value;
@@ -30,8 +39,6 @@ function addBookToLibrary() {
   const newBook = new Book(title, author, pages, read);
   
   myLibrary.push(newBook);
-
-  console.table(myLibrary);
 
   displayBooks(myLibrary);
 }
@@ -62,9 +69,9 @@ function displayBooks(library) {
     const bookCardRead = document.createElement("p");
     if (book.read === 'no') {
       bookCardRead.classList.add("not-read");
-      bookCardRead.textContent = "Not Read Yet";
+      bookCardRead.textContent = "Status: Not Read Yet";
     } else {
-      bookCardRead.textContent = "Read";
+      bookCardRead.textContent = "Status: Read";
     }
 
     const cardBtns = document.createElement("div");
@@ -81,7 +88,18 @@ function displayBooks(library) {
     
     const readBtn = document.createElement("button");
     readBtn.classList.add("read-btn");
-    readBtn.textContent = "Read";
+    readBtn.textContent = book.read === "yes" ? "Not Read" : "Read";
+    readBtn.addEventListener("click", () => {
+      const readUpdate = book.toggleRead();
+      if (readUpdate === 'no') {
+        bookCardRead.textContent = "Status: Not Read Yet";
+        readBtn.textContent = "Read";
+      } else {
+        bookCardRead.textContent = "Status: Read";
+        readBtn.textContent = "Not Read";
+      }
+      bookCardRead.classList.toggle("not-read");
+    });
 
     cardBtns.appendChild(deleteBtn);
     cardBtns.appendChild(readBtn);
