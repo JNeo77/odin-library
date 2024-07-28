@@ -73,6 +73,11 @@ function displayBooks(library) {
     const deleteBtn = document.createElement("button");
     deleteBtn.classList.add("delete-btn");
     deleteBtn.textContent = "Delete";
+    deleteBtn.addEventListener("click", () => {
+      const bookIndex = parseInt(bookCard.dataset.index);
+      myLibrary.splice(bookIndex, 1);
+      displayBooks(myLibrary);
+    });
     
     const readBtn = document.createElement("button");
     readBtn.classList.add("read-btn");
