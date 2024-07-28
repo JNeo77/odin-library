@@ -91,3 +91,58 @@ div.text label {
   padding: 5px 10px;
 }
 
+.book-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  padding: 2rem 2rem;
+  gap: 5px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  gap: 1rem;
+  border-radius: 8px 8px 0 0;
+  border: 2px solid #102c57;
+  background-color: #eadbc8;
+}
+
+.card h2 {
+  background-color: #102c57;
+  border-radius: 5px 5px 0 0;
+  color: #fefaf6;
+  padding-left: .5rem;
+}
+
+.card p {
+  padding-left: .5rem;
+  font-weight: 500;
+  color: #102c57;
+}
+
+.card button {
+  font-weight: 600;
+  padding: .25rem 1rem;
+  border: none;
+  border-radius: 5px;
+  color: #fefaf6;
+}
+
+.card-btns {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 .5rem .5rem .5rem;
+}
+
+.delete-btn {
+  background-color: #b43f3f;
+}
+
+.read-btn {
+  background-color: #80af81;
+}
+
+.card .not-read {
+  color: #b43f3f
+}
