@@ -106,6 +106,7 @@ div.text label {
   border-radius: 8px 8px 0 0;
   border: 2px solid #102c57;
   background-color: #eadbc8;
+  margin-bottom: 1rem;
 }
 
 .card h2 {
